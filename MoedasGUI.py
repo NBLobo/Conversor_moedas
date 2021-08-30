@@ -69,11 +69,10 @@ class Conversor_moedas():
                 vt = valor*v1
                 print(f'Data da Cotação:  {Data_Conversao}')
                 print(f'{valor:,.2f} {moeda} = {vt:,.2f} {moeda1}')
-
-            except KeyError:
+            except ValueError:
                 print('Voce deve selecionar as moedas para conversão!')
-        except KeyError:
-            print('Não encontou!')
+            except KeyError:
+                print('Não encontou!')
 
     def Iniciar(self):
         sg.popup_no_titlebar('''Bem_Vindos
