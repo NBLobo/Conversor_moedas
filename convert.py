@@ -1,6 +1,6 @@
 from currency_converter import ECB_URL, SINGLE_DAY_ECB_URL
 from currency_converter import CurrencyConverter
-from datetime import date
+#from datetime import date
 from os import system
 import requests
 import json
