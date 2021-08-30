@@ -1,5 +1,4 @@
 import PySimpleGUI as sg
-from PySimpleGUI.PySimpleGUI import GREENS
 from currency_converter import ECB_URL, SINGLE_DAY_ECB_URL
 from currency_converter import CurrencyConverter
 from os import system
@@ -15,7 +14,7 @@ Data_Conversao = last_date.strftime('%d/%m/%Y')
 moedas = c.currencies
 
 # Lista de Moedas
-list_moedas = ['USD', 'USDT', 'BRL', 'CAD', 'GBP', 'ARS', 'BTC', 'LTC',
+list_moedas = ['USD', 'USDT', 'BRL', 'CAD', 'GBP', 'ARS', 'BTC', 'LTC', 'SGD',
                'EUR', 'JPY', 'CHF', 'AUD', 'CNY', 'ILS', 'ETH', 'XRP', 'DOGE']
 
 list_moedas1 = ['USD', 'BRL', 'CAD', 'GBP', 'BTC', 'LTC', 'ZAR', 'ISK', 'CZK',
@@ -38,7 +37,7 @@ class Conversor_moedas():
              sg.Input(key='valor', size=(11, 1))],
             [sg.Text('Selecione a Moedas desejada.')],
             [sg.Text('Da_Moeda:', size=(10, 1)), sg.Combo(sorted(list_moedas), size=(8, 1), default_value='USD', key='moeda'),
-             sg.Text('Para_Moeda:', size=(11, 1)), sg.Combo(sorted(list_moedas1), size=(8, 1), default_value='BRL', key='moeda1')],
+             sg.Text('Para_Moeda:', size=(11, 1)), sg.Combo(sorted(list_moedas1), size=(8, 1), default_value='', key='moeda1')],
             [sg.Output(size=(50, 10), key='_output_')],
             [sg.Button('Limpar', button_color=('black', 'green')), sg.Button(
                 'Converter', button_color=('black', 'red')), sg.Button('Sair')]
@@ -73,8 +72,8 @@ class Conversor_moedas():
 
             except KeyError:
                 print('Voce deve selecionar as moedas para conversão!')
-            except KeyError:
-                print('Não encontou!')
+        except KeyError:
+            print('Não encontou!')
 
     def Iniciar(self):
         sg.popup_no_titlebar('''Bem_Vindos
