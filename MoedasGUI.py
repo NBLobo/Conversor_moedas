@@ -37,7 +37,7 @@ class Conversor_moedas():
              sg.Input(key='valor', size=(11, 1))],
             [sg.Text('Selecione a Moedas desejada.')],
             [sg.Text('Da_Moeda:', size=(10, 1)), sg.Combo(sorted(list_moedas), size=(8, 1), default_value='USD', key='moeda'),
-             sg.Text('Para_Moeda:', size=(11, 1)), sg.Combo(sorted(list_moedas1), size=(8, 1), default_value='', key='moeda1')],
+             sg.Text('Para_Moeda:', size=(11, 1)), sg.Combo(sorted(list_moedas1), size=(8, 1), default_value='BRL', key='moeda1')],
             [sg.Output(size=(50, 10), key='_output_')],
             [sg.Button('Limpar', button_color=('black', 'green')), sg.Button(
                 'Converter', button_color=('black', 'red')), sg.Button('Sair')]
@@ -78,7 +78,7 @@ class Conversor_moedas():
     def Iniciar(self):
         sg.popup_no_titlebar('''Bem_Vindos
         Projeto #08 - Sistema de Conversor Universal de Moedas.
-        Converte o valor de uma moeda para outra, utilizando o padrão internacional de moedas. Em Feriados, Sábado ou Domingo, a data de conversão será do último dia útil.''', background_color='black', font=12, text_color='green')
+        Converte o valor de uma moeda para outra, utilizando o padrão internacional de moedas tendo como base USD-BRL. Em Feriados, Sábado ou Domingo, a data de conversão será do último dia útil.''', background_color='black', font=12, text_color='green')
 
         while True:
             # Ler as informações da janela
