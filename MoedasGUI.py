@@ -21,11 +21,9 @@ list_moedas1 = ['USD', 'BRL', 'CAD', 'GBP', 'BTC', 'LTC', 'ZAR', 'ISK', 'CZK',
                 'SEK', 'MXN', 'HUF', 'INR', 'MYR', 'DKK', 'TRY', 'BGN', 'IDR',
                 'RUB', 'RON', 'HKD', 'THB', 'PLN', 'SGD', 'KRW', 'NOK', 'PHP',
                 'EUR', 'JPY', 'CHF', 'AUD', 'CNY', 'ILS', 'NZD']
-"""
+
 # Ordena crescente a listra
-l = sorted(list_moedas1)
-print(l)
-"""
+# l = sorted(list_moedas1)
 
 
 class Conversor_moedas():
@@ -39,8 +37,8 @@ class Conversor_moedas():
             [sg.Text('Da_Moeda:', size=(10, 1)), sg.Combo(sorted(list_moedas), size=(8, 1), default_value='USD', key='moeda'),
              sg.Text('Para_Moeda:', size=(11, 1)), sg.Combo(sorted(list_moedas1), size=(8, 1), default_value='BRL', key='moeda1')],
             [sg.Output(size=(50, 10), key='_output_')],
-            [sg.Button('Limpar', button_color=('black', 'green')), sg.Button(
-                'Converter', button_color=('black', 'red')), sg.Button('Sair')]
+            [sg.Button('Limpar', button_color=('white', 'green')), sg.Button(
+                'Converter', button_color=('white', 'blue')), sg.Button('Sair')]
         ]
     # Declarar Janela
         self.janela = sg.Window('Conversor de Moedas', layout, font=11)
@@ -57,7 +55,6 @@ class Conversor_moedas():
             conversao = c.convert(valor, moeda, moeda1)
             print(f'Data da Cotação: {Data_Conversao}')
             print(f' {valor:,.2f} {moeda} = {conversao:,.2f} {moeda1}')
-
         except ValueError:
             requisicao = requests.get(
                 'https://economia.awesomeapi.com.br/json/all')
@@ -89,7 +86,7 @@ class Conversor_moedas():
                 break
             elif evento == 'Sair':
                 sg.popup_no_titlebar(
-                    'Volte sempre!', font='18', text_color='blue')
+                    'Volte sempre!', font='18', text_color='yellow')
                 self.janela.close()
             elif evento == 'Converter':
                 try:
